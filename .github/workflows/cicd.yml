@@ -1,4 +1,4 @@
-name: Nde.js CI
+name: Node.js CI
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-
     runs-on: self-hosted
 
     strategy:
@@ -14,11 +13,20 @@ jobs:
         node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ls
-    - run: npm start
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: List files
+        run: ls
+
+      - name: Print current directory
+        run: pwd
+
+      - name: Start Node.js application
+        run: npm start
