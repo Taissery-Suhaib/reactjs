@@ -23,7 +23,8 @@ jobs:
           cache: 'npm'
 
       - name: Print current directory
-        run: pwd
+        run: npm install react-scripts
+
       - name: Print current directory
         run: ls
 
