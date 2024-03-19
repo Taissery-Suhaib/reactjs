@@ -24,6 +24,8 @@ jobs:
 
       - name: Print current directory
         run: pwd
+      - name: Print current directory
+        run: ls
 
       - name: Start Node.js application
         run: npm start
