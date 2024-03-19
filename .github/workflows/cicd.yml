@@ -22,9 +22,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: List files
-        run: ls
-
       - name: Print current directory
         run: pwd
 
